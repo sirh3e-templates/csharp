@@ -1,0 +1,28 @@
+name: .NET Core Format
+on:
+  push:
+    paths:
+    - 'src/**'
+    - 'test/**'
+  pull_request:
+    paths:
+      - 'src/**'
+      - 'test/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      
+    - name: Setup .NET Core SDK
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.100
+     
+    - name: dotnet tool install dotnet-format
+      run: dotnet tool install -g dotnet-format
+    
+    - name: dotnet format
+      run: dotnet format --check -v diag
