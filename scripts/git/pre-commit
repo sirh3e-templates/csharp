@@ -3,4 +3,4 @@
 DIR_ROOT="$(git rev-parse --show-toplevel)"
 [ -d "${DIR_ROOT}" ] || exit 1
 
-dotnet format "${DIR_ROOT}" --check -v diag
+dotnet format "${DIR_ROOT}" --check
