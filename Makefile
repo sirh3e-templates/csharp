@@ -22,3 +22,9 @@ restore: clean
 .PHONY: clean
 clean:
 	$(DOTNET) $@
+
+.PHONY: watch
+watch:
+	$(DOTNET) $@ test
+	$(DOTNET) $@ format
+	$(DOTNET) $@ run
